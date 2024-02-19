@@ -30,8 +30,14 @@ function App() {
     } else {
       return (
         <div className='app'>
-          <h1>Thank you for signing in {user.email}</h1>
-          <button onClick={() => signOut(auth)}>logout</button>
+          <h1 className='text-xl font-semibold'>
+            Thank you for signing in {user.email}
+          </h1>
+          <button
+            className='bg-slate-600 text-white text-2xl font-bold py-2 px-5 m-3 rounded-lg'
+            onClick={() => signOut(auth)}>
+            logout
+          </button>
         </div>
       );
     }
