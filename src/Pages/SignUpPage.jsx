@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { app } from "../firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 const auth = getAuth(app);
+const GoogleProvider = new GoogleAuthProvider();
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
@@ -13,9 +19,13 @@ const SignUpPage = () => {
       .then((value) => console.log("creation user success"))
       .catch((err) => console.log(err));
   };
+
+  const SignUpGoogle = () => {
+    signInWithPopup(auth, GoogleProvider).then((res) => console.log(res));
+  };
   return (
     <div className='signup_page'>
-      <h1 className='heading text-3xl font-bold m-4 mt-10'>Sign Up Form</h1>
+      <h1 className='heading text-3xl font-bold m-4 '>Sign Up Form</h1>
 
       <label
         htmlFor='email'
@@ -49,6 +59,11 @@ const SignUpPage = () => {
         onClick={createUser}
         className='bg-slate-600 text-white text-2xl font-bold py-2 px-5 m-3 rounded-lg'>
         Sign Up
+      </button>
+      <button
+        onClick={SignUpGoogle}
+        className='bg-slate-600 text-white text-2xl font-bold py-2 px-5 m-3 rounded-lg'>
+        Sign In with Google
       </button>
     </div>
   );
