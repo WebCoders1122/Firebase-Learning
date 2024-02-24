@@ -4,6 +4,7 @@ import { app } from "./firebase";
 import "./App.css";
 import SignUpPage from "./Pages/SignUpPage";
 import SigninPage from "./Pages/SigninPage";
+import FirestorePage from "./Pages/FirestorePage";
 
 const auth = getAuth(app);
 
@@ -14,7 +15,7 @@ function App() {
       if (user) {
         setUser(user);
       } else {
-        console.log("you are logged out");
+        // console.log("you are logged out");
         setUser(null);
       }
     });
@@ -23,8 +24,9 @@ function App() {
     if (user === null) {
       return (
         <div>
-          <SignUpPage />
-          <SigninPage />
+          {/* <SignUpPage /> */}
+          {/* <SigninPage /> */}
+          <FirestorePage />
         </div>
       );
     } else {
