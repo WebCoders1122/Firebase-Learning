@@ -5,6 +5,7 @@ import "./App.css";
 import SignUpPage from "./Pages/SignUpPage";
 import SigninPage from "./Pages/SigninPage";
 import FirestorePage from "./Pages/FirestorePage";
+import RealtimeDatabase from "./Pages/RealtimeDatabase";
 
 const auth = getAuth(app);
 
@@ -26,7 +27,8 @@ function App() {
         <div>
           {/* <SignUpPage /> */}
           {/* <SigninPage /> */}
-          <FirestorePage />
+          {/* <FirestorePage /> */}
+          <RealtimeDatabase />
         </div>
       );
     } else {
